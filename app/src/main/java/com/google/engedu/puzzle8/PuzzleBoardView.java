@@ -92,7 +92,7 @@ public class PuzzleBoardView extends View {
         Comparator<PuzzleBoard> comparator = new BoardComparator();
 
         //all the visited boards
-        ArrayList<PuzzleBoard> visited = new ArrayList<>();
+//        ArrayList<PuzzleBoard> visited = new ArrayList<>();
 
         //priority queue of boards
         PriorityQueue<PuzzleBoard> queue = new PriorityQueue<>(10, comparator);
@@ -137,13 +137,14 @@ public class PuzzleBoardView extends View {
             PuzzleBoard lowestPriority = queue.poll();
 
             //add it to the visited boards
-            visited.add(lowestPriority);
+//            visited.add(lowestPriority);
 
             //if the board is not the solution(solved board)
             if (!lowestPriority.resolved()) {
                 //get all its unvisited neighbours and add them to the queue
                 for (PuzzleBoard pb : lowestPriority.neighbours()) {
 //                    if (!pb.equals(lowestPriority.getPreviousBoard()) && !(visited.contains(pb)))
+                    if (!pb.equals(lowestPriority.getPreviousBoard()))
                         queue.add(pb);
                 }
             }
